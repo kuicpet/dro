@@ -1,23 +1,13 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <h1>DRO Health</h1>
+       <h4>The Complete Healthcare Solution</h4>
+       <p>The DRO Health platform makes it possible for anyone <br/>
+          with a smart device to access quality, affordable healthcare.</p>
     </div>
   );
 }
