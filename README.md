@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2288752a-007a-4a7a-8dbc-4f0944791a46/deploy-status)](https://app.netlify.com/sites/dro-health-kuic/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
