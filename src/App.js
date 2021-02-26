@@ -1,15 +1,24 @@
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import logo from "./images/logo-768x138.png";
 
-function App() {
+import Home from './components/Home';
+import NotFound from './components/NotFound';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import UserDashboard from './components/UserDashboard';
+
+export default function App() {
   return (
     <div className="App">
-       <img src={logo} alt="DRO Health" />
-       <h4>The Complete Healthcare Solution</h4>
-       <p>The DRO Health platform makes it possible for anyone <br/>
-          with a smart device to access quality, affordable healthcare.</p>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/signup" component={SignUp}/>
+        <Route exact path="/signin" component={SignIn}/>
+        <Route exact path="/dashboard" component={UserDashboard}/>
+        <Route component={NotFound}/>
+      </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
