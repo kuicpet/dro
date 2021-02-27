@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
+import Header from './components/Header';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import SignIn from './components/SignIn';
@@ -11,6 +12,7 @@ import UserDashboard from './components/UserDashboard';
 export default function App() {
   return (
     <div className="App">
+      <Header/>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/signup" component={SignUp}/>
