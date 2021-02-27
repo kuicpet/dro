@@ -10,8 +10,8 @@ export default function Header() {
                 <img src={logo} alt="DRO Health" />
             </Link>
             <div className="navlinks">
-                <Link to="/signin" className="signin">Sign In</Link>
-                <Link to="/signup" className="signup">Sign Up</Link>
+                <Link to="/signin" className="signin">Login</Link>
+                <Link to="/signup" className="signup">Register</Link>
             </div>
         </nav>
     )

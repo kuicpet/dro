@@ -30,7 +30,6 @@
   width: 100%;
   padding: 1rem;
   box-shadow: var(--dro-shadow);
-  margin-bottom: 2rem;
 }
 
 .header img {
@@ -93,6 +92,37 @@
  transform: translateY(0);
   animation: upDown 12s ease-in-out infinite;
 }
+.register, .login {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+.register_contents, .login_contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--dro-background);
+  color: var(--dro-white);
+  width: 100%;
+  text-align: left;
+}
+.register_form, .login_form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
  @keyframes upDown {
    0% {
      -webkit-transform: translateY(0);
