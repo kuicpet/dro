@@ -99,7 +99,9 @@ export default function SignUp() {
                         { errors.dob && <p className="errors" >{errors.dob.message}</p> }
                     </div>
                     <div>
-                        <label htmlFor="gender">Select Gender</label>
+                        <div className="label">
+                            <label htmlFor="gender">Select Gender</label>
+                        </div>
                         <select name="gender" ref={register({
                             required: "Please select a Gender"
                         })}
@@ -111,7 +113,9 @@ export default function SignUp() {
                         { errors.gender && <p className="errors" >{errors.gender.message}</p> }
                     </div>
                     <div>
-                        <label htmlFor="city">City</label>
+                        <div className="label">
+                            <label htmlFor="city">City</label>
+                        </div>
                         <input 
                             type="text"
                             name="city"
@@ -133,7 +137,9 @@ export default function SignUp() {
                         { errors.city && <p className="errors" >{errors.city.message}</p> }
                     </div>
                     <div>
-                        <label htmlFor="state">Select State</label>
+                        <div className="label">
+                            <label htmlFor="state">Select State</label>
+                        </div>
                         <select 
                             name="state"
                             className="state"
@@ -145,7 +151,9 @@ export default function SignUp() {
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="phone">Phone Number</label>
+                        <div className="label">
+                            <label htmlFor="phone">Phone Number</label>
+                        </div>
                         <input 
                             type="text"
                             name="phone"
@@ -159,7 +167,9 @@ export default function SignUp() {
                         { errors.phone && <p className="errors" >{errors.phone.message}</p> }
                     </div>
                     <div>
-                       <label htmlFor="email">Email</label>
+                       <div className="label">
+                            <label htmlFor="email">Email</label>
+                       </div>
                        <input
                          type="email"
                          name="email"
@@ -177,7 +187,9 @@ export default function SignUp() {
                        { errors.email && <p className="errors" >{errors.email.message}</p> } 
                     </div>
                     <div>
-                       <label htmlFor="password1">Password</label>
+                       <div className="label">
+                            <label htmlFor="password1">Password</label>
+                       </div>
                        <input
                          type="password"
                          name="password"
@@ -195,12 +207,14 @@ export default function SignUp() {
                        { errors.password && <p className="errors" >{errors.password.message}</p> }
                     </div>
                     <div>
-                       <label htmlFor="password2">Confirm Password</label>
+                       <div className="label">
+                            <label htmlFor="password2">Confirm Password</label>
+                       </div>
                        <input
                          type="password"
                          name="confirm_password"
                          className="Confirm_password"
-                         placeholder="confirm password"
+                         placeholder="Confirm Password"
                          ref={register({
                            required: "Please confirm your password",
                            validate: (value) => value === getValues().password || "Passwords donot match",
@@ -210,6 +224,7 @@ export default function SignUp() {
                        { errors.confirm_password && <p className="errors" >{errors.confirm_password.message}</p> }
                     </div>
                     <div>
+                        <div className="label">
                         <label htmlFor="checkBox">
                         <input 
                             type="checkbox"
@@ -221,6 +236,8 @@ export default function SignUp() {
                         />
                         By signing up, you agree to our Terms and Privacy Policy.
                         </label>
+                        </div>
+                        
                     </div>
                     <button
                         className="btn"

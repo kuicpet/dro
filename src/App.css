@@ -146,8 +146,8 @@ input, select {
   background-color: var(--dro-inputBackground);
 }
 input[type="checkbox"]{
-  width: 5%;
-  margin: 0 0.2rem;
+  width: 1%;
+  margin: 1rem 0.2rem;
 }
 .errors {
   color: red;
