@@ -4,6 +4,7 @@
   --dro-purple: #9F5DE2;
   --dro-background: linear-gradient(180deg, #9F5DE2 0%, #0A0A40 100%);
   --dro-shadow: 0 35px 60px rgba(0,0,0,0.10);
+  --dro-inputBackground: #f5f0f0;
 }
 
 * {
@@ -118,10 +119,66 @@
   align-items: center;
   width: 100%;
   text-align: center;
+  padding: 1rem;
 }
-
-
-
+.register_form h1, .login_form h1 {
+  color: var(--dro-purple);
+}
+.form {
+  box-shadow: var(--dro-shadow);
+  padding: 1rem;
+}
+.label {
+  text-align: left;
+  margin-top: 0.5rem;
+  padding: 0;
+}
+input {
+  margin: 0.2rem 0;
+}
+input, select {
+  width: 100%;
+  padding: 0.35rem;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--dro-purple);
+  background-color: var(--dro-inputBackground);
+}
+input[type="checkbox"]{
+  width: 5%;
+  margin: 0 0.2rem;
+}
+.errors {
+  color: red;
+  font-size: 0.85rem;
+}
+.btn {
+  width: 50%;
+  padding: 0.4rem;
+  text-transform: uppercase;
+  background-color: var(--dro-purple);
+  color: var(--dro-white);
+  outline: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 500ms;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+.my-3 {
+  margin: 1.5rem;
+}
+.mx-3 {
+  margin: 0 0.5rem;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
  @keyframes upDown {
    0% {
