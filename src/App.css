@@ -135,10 +135,11 @@
 }
 input {
   margin: 0.2rem 0;
+
 }
 input, select {
   width: 100%;
-  padding: 0.35rem;
+  padding: 0.45rem;
   border-radius: 0;
   outline: none;
   border: none;
@@ -156,10 +157,12 @@ input[type="checkbox"]{
 .btn {
   width: 50%;
   padding: 0.4rem;
+  border-radius: 50px;
   text-transform: uppercase;
   background-color: var(--dro-purple);
   color: var(--dro-white);
   outline: none;
+  border: none;
   font-size: 1.3rem;
   cursor: pointer;
   transition: all 500ms;
@@ -179,6 +182,16 @@ a {
 a:hover {
   text-decoration: underline;
 }
+@media screen and (max-width: 799px){
+  .register, .login {
+    display: flex;
+    flex-direction: column;
+  }
+  .register_contents {
+    display: none;
+  }
+}
+
 
  @keyframes upDown {
    0% {

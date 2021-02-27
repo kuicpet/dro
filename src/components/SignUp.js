@@ -155,7 +155,7 @@ export default function SignUp() {
                             <label htmlFor="phone">Phone Number</label>
                         </div>
                         <input 
-                            type="text"
+                            type="number"
                             name="phone"
                             className="phone"
                             placeholder="Phone No"
