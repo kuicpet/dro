@@ -246,7 +246,7 @@ export default function SignUp() {
                         </div>
                         <input
                             type="password"
-                            name="password"
+                            name="password1"
                             className="password"
                             placeholder="Password (min 8)"
                             ref={register({
@@ -258,7 +258,7 @@ export default function SignUp() {
                             })}
                             style={{ borderColor: errors.password1 && "red" }}
                         />
-                        { errors.password && <p className="errors" >{errors.password.message}</p> }
+                        { errors.password1 && <p className="errors" >{errors.password1.message}</p> }
                     </div>
                     <div>
                         <div className="label">

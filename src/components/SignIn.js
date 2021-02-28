@@ -66,7 +66,7 @@ export default function SignIn() {
                                 message: "Password must have at least 8 characters"
                                 }
                             })}
-                            style={{ borderColor: errors.password1 && "red" }}
+                            style={{ borderColor: errors.password && "red" }}
                         />
                         { errors.password && <p className="errors" >{errors.password.message}</p> }
                     </div>
