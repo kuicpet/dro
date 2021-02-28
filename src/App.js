@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header';
-import Home from './components/Home';
-import NotFound from './components/NotFound';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
-import UserDashboard from './components/UserDashboard';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import UserDashboard from './pages/UserDashboard';
 
 export default function App() {
   return (
