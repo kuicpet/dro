@@ -1,6 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import logo from '../images/Logo-white-circle-–-1.png';
 
 
 export default function SignUp() {
@@ -16,15 +18,27 @@ export default function SignUp() {
     const onSubmit = async(data, e) => {
         e.preventDefault();
         console.log("Form Submitted", data);
+        const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type' : 'application/json',
+            'token' : 'X-CSRFToken'
+        }
         // Make api call here
+        await axios
+            .post("https://dev.drohealth.com/patients/api/create/", data, headers)
+            .then((res) => {
+                console.log(res)
+                console.log(res.data)
+            })
     }
 
     return (
         <div className="register">
             <div className="register_contents">
+                <img src={logo} alt=""/>
                 <h1>The Complete <br/>Healthcare Solution</h1>
             </div>
-            <div className="register_form">
+            <div className="register_form my-3">
                 <h1>Sign Up</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="form">
                     <div>
@@ -49,15 +63,15 @@ export default function SignUp() {
                             })}
                             style={{ borderColor: errors.username && "red" }} 
                         />
-                         { errors.firstName && <p className="errors" >{errors.username.message}</p> }
+                         { errors.username && <p className="errors" >{errors.username.message}</p> }
                     </div>
                     <div>
                         <div className="label">
-                            <label htmlFor="firstName">First Name</label>
+                            <label htmlFor="first_name">First Name</label>
                         </div>
                         <input 
                             type="text"
-                            name="firstName"
+                            name="first_name"
                             className="firstName"
                             placeholder="First name"
                             ref={register({
@@ -75,17 +89,17 @@ export default function SignUp() {
                                 message: "First Name should contain only uppercase or lower case letters"
                             },
                             })}
-                            style={{ borderColor: errors.firstName && "red" }} 
+                            style={{ borderColor: errors.first_name && "red" }} 
                         />
-                        { errors.firstName && <p className="errors" >{errors.firstName.message}</p> }
+                        { errors.first_name && <p className="errors" >{errors.first_name.message}</p> }
                     </div>
                     <div>
                         <div className="label">
-                            <label htmlFor="lastName">Last Name</label>
+                            <label htmlFor="last_name">Last Name</label>
                         </div>
                         <input 
                             type="text"
-                            name="lastName"
+                            name="last_name"
                             className="lastName"
                             placeholder="Last name"
                             ref={register({
@@ -103,24 +117,24 @@ export default function SignUp() {
                                 message: "Last Name should contain only uppercase or lower case letters"
                             },
                             })}
-                            style={{ borderColor: errors.lastName && "red" }} 
+                            style={{ borderColor: errors.last_name && "red" }} 
                         />
-                        { errors.lastName && <p className="errors" >{errors.lastName.message}</p> }
+                        { errors.last_name && <p className="errors" >{errors.last_name.message}</p> }
                     </div>
                     <div>
                         <div className="label">
-                            <label htmlFor="dob">Date of Birth</label>
+                            <label htmlFor="birth_date">Date of Birth</label>
                         </div>
                         <input
                             type="date"
-                            name="dob"
-                            className="dob"
+                            name="birth_date"
+                            className="birth_date"
                             ref={register({
                                 required: "Please enter your Date of Birth"
                             })}
-                            style={{ borderColor: errors.dob && "red" }}
+                            style={{ borderColor: errors.birth_date && "red" }}
                         />
-                        { errors.dob && <p className="errors" >{errors.dob.message}</p> }
+                        { errors.birth_date && <p className="errors" >{errors.birth_date.message}</p> }
                     </div>
                     <div>
                         <div className="label">
@@ -207,77 +221,61 @@ export default function SignUp() {
                         { errors.phone && <p className="errors" >{errors.phone.message}</p> }
                     </div>
                     <div>
-                       <div className="label">
+                        <div className="label">
                             <label htmlFor="email">Email</label>
-                       </div>
-                       <input
-                         type="email"
-                         name="email"
-                         className="email"
-                         placeholder="Email"
-                         ref={register({
-                           required: "Please enter your email address",
-                           pattern: {
-                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                             message: "Enter a valid e-mail address",
-                           },
-                          })}
-                         style={{ borderColor: errors.email && "red" }}
-                         />
-                       { errors.email && <p className="errors" >{errors.email.message}</p> } 
-                    </div>
-                    <div>
-                       <div className="label">
-                            <label htmlFor="password1">Password</label>
-                       </div>
-                       <input
-                         type="password"
-                         name="password"
-                         className="password"
-                         placeholder="Password (min 8)"
-                         ref={register({
-                           required: "Password field is required",
-                           minLength: {
-                             value: 8,
-                             message: "Password must have at least 8 characters"
-                           }
-                         })}
-                         style={{ borderColor: errors.password1 && "red" }}
-                         />
-                       { errors.password && <p className="errors" >{errors.password.message}</p> }
-                    </div>
-                    <div>
-                       <div className="label">
-                            <label htmlFor="password2">Confirm Password</label>
-                       </div>
-                       <input
-                         type="password"
-                         name="confirm_password"
-                         className="Confirm_password"
-                         placeholder="Confirm Password"
-                         ref={register({
-                           required: "Please confirm your password",
-                           validate: (value) => value === getValues().password || "Passwords donot match",
-                          })}
-                         style={{ borderColor: errors.confirm_password && "red" }}
-                         />
-                       { errors.confirm_password && <p className="errors" >{errors.confirm_password.message}</p> }
+                        </div>
+                        <input
+                            type="email"
+                            name="email"
+                            className="email"
+                            placeholder="Email"
+                            ref={register({
+                            required: "Please enter your email address",
+                            pattern: {
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                message: "Enter a valid e-mail address",
+                            },
+                            })}
+                            style={{ borderColor: errors.email && "red" }}
+                        />
+                        { errors.email && <p className="errors" >{errors.email.message}</p> } 
                     </div>
                     <div>
                         <div className="label">
-                        <label htmlFor="checkBox">
-                        <input 
-                            type="checkbox"
-                            name="checkBox"
-                            className="checkBox"
-                            ref={register({
-                                required: "Please agree to terms of use"
-                            })} 
-                        />
-                        By signing up, you agree to our Terms and Privacy Policy.
-                        </label>
+                            <label htmlFor="password1">Password</label>
                         </div>
-                        
+                        <input
+                            type="password"
+                            name="password"
+                            className="password"
+                            placeholder="Password (min 8)"
+                            ref={register({
+                                required: "Please enter your password",
+                                minLength: {
+                                value: 8,
+                                message: "Password must have at least 8 characters"
+                                }
+                            })}
+                            style={{ borderColor: errors.password1 && "red" }}
+                        />
+                        { errors.password && <p className="errors" >{errors.password.message}</p> }
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="password2">Confirm Password</label>
+                        </div>
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            className="Confirm_password"
+                            placeholder="Confirm Password"
+                            ref={register({
+                                required: "Please confirm your password",
+                                validate: (value) => value === getValues().password || "Passwords donot match",
+                            })}
+                            style={{ borderColor: errors.confirm_password && "red" }}
+                        />
+                        { errors.confirm_password && <p className="errors" >{errors.confirm_password.message}</p> }
                     </div>
                     <button
                         className="btn"
@@ -285,7 +283,7 @@ export default function SignUp() {
                         disabled={ !isDirty || isSubmitting }>
                         Register
                     </button>
-                   <p className="my-3">
+                    <p className="my-3">
                         Already have an Account?
                         <Link to="/signin" className="mx-3">Login</Link>
                     </p>
