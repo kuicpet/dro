@@ -74,7 +74,7 @@ export default function SignIn() {
                         className="btn"
                         type="submit"
                         disabled={ !isDirty || isSubmitting }>
-                        Register
+                        Login
                     </button>
                     <p className="my-3">
                         Don't have an Account?
