@@ -29,6 +29,30 @@ export default function SignUp() {
                 <form onSubmit={handleSubmit(onSubmit)} className="form">
                     <div>
                         <div className="label">
+                            <label htmlFor="username">Username</label>
+                        </div>
+                        <input
+                            type="text"
+                            name="username"
+                            className="username"
+                            placeholder="Username"
+                            ref={register({
+                                required: "Please enter your username",
+                                maxLength: {
+                                    value: 20,
+                                    message: "Username should be maximum length of 20 characters"
+                                },
+                                minLength: {
+                                    value: 3,
+                                    message: "Username should be a minnmum length of 3 characters"
+                                }
+                            })}
+                            style={{ borderColor: errors.username && "red" }} 
+                        />
+                         { errors.firstName && <p className="errors" >{errors.username.message}</p> }
+                    </div>
+                    <div>
+                        <div className="label">
                             <label htmlFor="firstName">First Name</label>
                         </div>
                         <input 
@@ -40,11 +64,11 @@ export default function SignUp() {
                                 required: "Please enter your first name",
                             maxLength: {
                                 value: 50,
-                                message: "First Name should be maximum length of 50 Characters"
+                                message: "First Name should be maximum length of 50 characters"
                             },
                             minLength: {
                                 value: 3,
-                                message: "First name should be minimum length of 4 Characters"
+                                message: "First name should be minimum length of 3 characters"
                             },
                             pattern: {
                                 value: /^[A-Za-z]+$/i,
@@ -68,11 +92,11 @@ export default function SignUp() {
                                 required: "Please enter your last name",
                             maxLength: {
                                 value: 50,
-                                message: "Last Name should be maximum length of 50 Characters"
+                                message: "Last Name should be maximum length of 50 characters"
                             },
                             minLength: {
                                 value: 3,
-                                message: "Last Name should be minimum length of 3 Characters"
+                                message: "Last Name should be minimum length of 3 characters"
                             },
                             pattern: {
                                 value: /^[A-Za-z]+$/i,
@@ -125,11 +149,11 @@ export default function SignUp() {
                                 required: "Please enter the name of your city",
                                 maxLength: {
                                     value: 50,
-                                    message: "City Name should be maximum length of 50 Characters"
+                                    message: "City Name should be maximum length of 50 characters"
                                 },
                                 minLength: {
                                     value: 3,
-                                    message: "City Name should be minimum length of 3 Characters"
+                                    message: "City Name should be minimum length of 3 characters"
                                 },
                             })}
                             style={{ borderColor: errors.city && "red" }}
@@ -161,8 +185,24 @@ export default function SignUp() {
                             placeholder="Phone No"
                             ref={register({
                                 required: "Please enter your pnone number",
+                                minLength: {
+                                    value: 11,
+                                    message: "Please enter a valid mobile phone number"
+                                },
+                                maxLength: {
+                                    value: 11,
+                                    message: "Please enter a valid mobile phone number"
+                                },
+                                size: {
+                                    value: 11,
+                                    message: "please enter a valid mobile phone number"
+                                },
+                                pattern: {
+                                    value: "[0]{10)$",
+                                    message: "Please enter a valid mobile phone number"
+                                }
                             })}
-                            style={{ borderColor: errors.city && "red" }}
+                            style={{ borderColor: errors.phone && "red" }}
                         />
                         { errors.phone && <p className="errors" >{errors.phone.message}</p> }
                     </div>
