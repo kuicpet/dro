@@ -3,7 +3,9 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import logo from '../images/Logo-white-circle-–-1.png';
+
 import SelectStates from "../components/SelectStates";
+import RefMethods from "../components/RefMethods";
 
 export default function SignUp() {
     const {
@@ -260,6 +262,7 @@ export default function SignUp() {
                         />
                         { errors.confirm_password && <p className="errors" >{errors.confirm_password.message}</p> }
                     </div>
+                    <RefMethods/>
                     <button
                         className="btn"
                         type="submit"

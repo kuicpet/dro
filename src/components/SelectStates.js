@@ -59,8 +59,8 @@ export default function SelectStates() {
             value: "Enugu"
         },
         {
-            label: "Fedreal Capital Territory",
-            value: "Fedreal Capital Territory"
+            label: "FCT",
+            value: "FCT"
         },
         {
             label: "Gombe",
