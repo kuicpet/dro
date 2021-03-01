@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -7,21 +7,6 @@ import { states } from '../components/stateData';
 import { ref_methods } from "../components/refData";
 
 export default function SignUp() {
-    const [formData, setFormData] = useState({
-        user: {
-            username: '',
-            email: '',
-            password: '',
-            first_name: '',
-            last_name: ''
-        },
-        gender: '',
-        phone: '',
-        birth_date: '',
-        city: '',
-        state: '',
-        ref_methods: ''
-    })
     const {
         register, 
         handleSubmit, 
