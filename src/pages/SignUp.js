@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import logo from '../images/Logo-white-circle-–-1.png';
@@ -22,12 +21,7 @@ export default function SignUp() {
         console.log("Form Submitted", userData);
        
         // Make api call here
-        await axios
-            .post("https://dev.drohealth.com/patients/api/create/", userData)
-            .then((res) => {
-                console.log(res)
-                
-            })
+        
     }
 
     return (

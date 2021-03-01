@@ -156,7 +156,7 @@ export default function SelectStates() {
             <div className="label">
                 <label htmlFor="state">Select State</label>
             </div>
-            <select>
+            <select name="state">
             {states.map(({label, value}) => (
                 <option
                     key={value}
