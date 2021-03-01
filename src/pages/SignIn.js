@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import logo from '../images/Logo-white-circle-–-1.png';
 
 export default function SignIn() {
     const {
@@ -20,8 +19,7 @@ export default function SignIn() {
     return (
         <div className="login">
             <div className="login_contents">
-                <img src={logo} alt=""/>
-                <h1>The Complete <br/>Healthcare Solution</h1>
+               
             </div>
             <div className="login_form my-3">
                 <h1>Sign In</h1>

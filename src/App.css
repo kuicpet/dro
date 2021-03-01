@@ -111,15 +111,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--dro-background);
-  color: var(--dro-white);
+  justify-content: center;
+  background: url("./images/Logo-white-circle-–-1.png") no-repeat left 10rem center;
+  background-size: 20%;
+  background-attachment: fixed;
   width: 100%;
   text-align: left;
 }
 .register_contents img,
 .login_contents img, 
 .notFound img {
-  width: 15%;
+  width: 25%;
   margin: 2rem 0;
 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import logo from '../images/Logo-white-circle-–-1.png';
 
 import SelectStates from "../components/SelectStates";
 import RefMethods from "../components/RefMethods";
@@ -27,8 +26,7 @@ export default function SignUp() {
     return (
         <div className="register">
             <div className="register_contents">
-                <img src={logo} alt=""/>
-                <h1>The Complete <br/>Healthcare Solution</h1>
+                
             </div>
             <div className="register_form my-3">
                 <h1>Sign Up</h1>
