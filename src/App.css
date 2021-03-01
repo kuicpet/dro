@@ -31,8 +31,12 @@
   width: 100%;
   padding: 1rem;
   box-shadow: var(--dro-shadow);
+  background-color: var(--dro-white);
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
-
 .header img {
   width: 200px;
   margin-left: 1rem;
