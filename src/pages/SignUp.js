@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import { states } from '../components/stateData';
 import { ref_methods } from "../components/refData";
 
 export default function SignUp() {
+    const [formData, setFormData] = useState({
+        user: {
+            username: '',
+            email: '',
+            password: '',
+            first_name: '',
+            last_name: ''
+        },
+        gender: '',
+        phone: '',
+        birth_date: '',
+        city: '',
+        state: '',
+        ref_methods: ''
+    })
     const {
         register, 
         handleSubmit, 
@@ -28,12 +44,15 @@ export default function SignUp() {
             
         
     }
-    const onSubmit = async(userData, e) => {
+    const onSubmit = async(formData, e) => {
         e.preventDefault();
-        console.log("Form Submitted", userData);
+        console.log("Form Submitted", formData);
        
         // Make api call here
-        
+        axios.post("https://dev.drohealth.com/patients/api/create/", formData)
+            .then((res) => {
+                console.log(res)
+            })
     }
 
     return (
@@ -199,7 +218,7 @@ export default function SignUp() {
                             <label htmlFor="phone">Phone Number</label>
                         </div>
                         <input 
-                            type="number"
+                            type="tel"
                             name="phone"
                             className="phone"
                             placeholder="Phone No"
@@ -224,6 +243,7 @@ export default function SignUp() {
                             })}
                             style={{ borderColor: errors.phone && "red" }}
                         />
+                        <small>Format: 0805282372</small>
                         { errors.phone && <p className="errors" >{errors.phone.message}</p> }
                     </div>
                     <div>
