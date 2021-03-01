@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import logo from '../images/Logo-white-circle-–-1.png';
-
+import SelectStates from "../components/SelectStates";
 
 export default function SignUp() {
     const {
@@ -15,20 +15,16 @@ export default function SignUp() {
     } = useForm({
         mode: "onChange",
     });
-    const onSubmit = async(data, e) => {
+    const onSubmit = async(userData, e) => {
         e.preventDefault();
-        console.log("Form Submitted", data);
-        const headers = {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type' : 'application/json',
-            'token' : 'X-CSRFToken'
-        }
+        console.log("Form Submitted", userData);
+       
         // Make api call here
         await axios
-            .post("https://dev.drohealth.com/patients/api/create/", data, headers)
+            .post("https://dev.drohealth.com/patients/api/create/", userData)
             .then((res) => {
                 console.log(res)
-                console.log(res.data)
+                
             })
     }
 
@@ -174,20 +170,7 @@ export default function SignUp() {
                         />
                         { errors.city && <p className="errors" >{errors.city.message}</p> }
                     </div>
-                    <div>
-                        <div className="label">
-                            <label htmlFor="state">Select State</label>
-                        </div>
-                        <select 
-                            name="state"
-                            className="state"
-                            ref={register({
-                            required: "Please select a State"
-                        })}>
-                            <option value="Abuja">Abuja</option>
-                            <option value="Benue">Benue</option>
-                        </select>
-                    </div>
+                    <SelectStates />
                     <div>
                         <div className="label">
                             <label htmlFor="phone">Phone Number</label>
@@ -262,7 +245,7 @@ export default function SignUp() {
                     </div>
                     <div>
                         <div className="label">
-                            <label htmlFor="password2">Confirm Password</label>
+                            <label htmlFor="confirm_password">Confirm Password</label>
                         </div>
                         <input
                             type="password"
@@ -271,7 +254,7 @@ export default function SignUp() {
                             placeholder="Confirm Password"
                             ref={register({
                                 required: "Please confirm your password",
-                                validate: (value) => value === getValues().password || "Passwords donot match",
+                                validate: (value) => value === getValues().password1 || "Passwords donot match",
                             })}
                             style={{ borderColor: errors.confirm_password && "red" }}
                         />
