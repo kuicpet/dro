@@ -1,6 +1,12 @@
 import React from 'react';
 import { Col, Tab, Row, ListGroup } from "react-bootstrap";
 
+import men from "../images/male-icon.png"; 
+import women from "../images/female-icon.png";
+import medicineBox from "../images/medicine-box-2-icon.png";
+import brain from "../images/human-brain-icon.png";
+
+
 export default function UserDashboard() {
     return (
         <Tab.Container defaultActiveKey="#Link1">
@@ -48,7 +54,8 @@ export default function UserDashboard() {
                                 <div>
                                     <p>Fund Wallet (Current Balance - N0.0)</p>
                                 </div>
-                                <div>
+                                <div className="my_health">
+                                    <img src={medicineBox} alt=""/>
                                     <p>My Health</p>
                                 </div>
                                 <div>
@@ -57,13 +64,16 @@ export default function UserDashboard() {
                             </div>
                             <p>Specialised Services</p>
                             <div className="item4">
-                                <div>
+                                <div className="brain">
+                                    <img src={brain} alt="" />
                                     <p>Mental Health</p>
                                 </div>
-                                <div>
+                                <div className="women">
+                                    <img src={women} alt="" />
                                     <p>Women's Health</p>
                                 </div>
-                                <div>
+                                <div className="men">
+                                    <img src={men} alt="" />
                                     <p>Men's Health</p>
                                 </div>
                             </div>
@@ -157,10 +167,18 @@ export default function UserDashboard() {
                                 <div className="profile_contents"></div>
                             </div>
                             <div className="profile_others">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                                <div>
+                                    <p>My Family</p>
+                                </div>
+                                <div>
+                                    <p>My Wallet</p>
+                                </div>
+                                <div>
+                                    <p>My Health</p>
+                                </div>
+                                <div>
+                                    <p>My Orders</p>
+                                </div>
                             </div>
                         </Tab.Pane>
                     </Tab.Content>

@@ -200,14 +200,25 @@ input[type="checkbox"]{
   height: 100%;
   background-color: var(--dro-white);
   cursor: pointer;
+  transition: all 500ms ease;
+}
+
+.list-group-item.active {
+  background: var(--dro-background);
+}
+.list-group-item {
+  border: none;
+}
+.list-group {
+  border: 1px solid #e3e3e3;
 }
 .col-sm-4 {
   padding: 1rem;
 }
 .col-sm-8 {
   padding: 1rem;
-  background: #e3e3e3;
   min-width: 100vh;
+  background: rgba(0, 0, 0, 0) radial-gradient(rgba(0, 0, 0, 0.05) 30%, transparent) repeat scroll 0% 0%;
 }
 .item1,
 .practitioners_services,
@@ -223,6 +234,7 @@ input[type="checkbox"]{
   border-radius: 10px;
   background-color: var(--dro-white);
   z-index: 100;
+  border: 1px solid #e3e3e3;
 }
 .item2 {
   display: grid;
@@ -240,6 +252,10 @@ input[type="checkbox"]{
   text-align: center;
   border-radius: 10px;
   padding: 0.5rem;
+  transition: all 500ms ease;
+}
+.item2 div:hover {
+  transform: translateY(-5px);
 }
 .item3, .item4, .item5 {
   display: grid;
@@ -267,6 +283,7 @@ input[type="checkbox"]{
   justify-content: center;
   padding: 0.5rem;
   border-radius: 10px;
+  border: 1px solid #e3e3e3;
 }
 .item3 div {
   background-color: lightsalmon;
@@ -291,6 +308,7 @@ input[type="checkbox"]{
   height: 4rem;
   text-align: center;
   border-radius: 5px;
+  border: 1px solid #e3e3e3;
 }
 .cases_others p {
   padding: 0;
@@ -308,6 +326,7 @@ input[type="checkbox"]{
   height: 12rem;
   background-color: var(--dro-white);
   border-radius: 10px;
+  border: 1px solid #e3e3e3;
 }
 .practitioners_view , .profile_details {
   display: grid;
@@ -324,6 +343,7 @@ input[type="checkbox"]{
   padding: 0.5rem;
   margin: 0 0.5rem;
   background-color: var(--dro-white);
+  border: 1px solid #e3e3e3;
 }
 .view_single {
   display: grid;
@@ -338,6 +358,7 @@ input[type="checkbox"]{
   margin: 0.1rem;
   padding: 0.1rem;
   height: 5rem;
+  border: 1px solid #e3e3e3;
 }
 .view_single p {
   font-size: 0.8rem;
@@ -353,14 +374,26 @@ input[type="checkbox"]{
 .profile_img, .profile_contents {
   background-color: var(--dro-white);
   margin: 0 0.5rem;
+  border: 1px solid #e3e3e3;
 }
 .profile_others {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   column-gap: 1rem;
-  height: 10rem;
+  height: 5em;
   margin: 1rem 0;
   border-radius: 10px;
+}
+.profile_others div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dro-white);
+  margin: 0.1rem;
+  padding: 0.1rem;
+  height: 5rem;
+  border: 1px solid #e3e3e3;
 }
 .now, .test {
   background-color: lightblue;
@@ -371,6 +404,12 @@ input[type="checkbox"]{
 .covid {
   background-color: lightgreen;
 }
+.men img,
+.women img,
+.my_health img,
+.brain img {
+  width: 40%;
+}
 
 @media screen and (max-width: 799px){
   .item2 {
@@ -379,7 +418,7 @@ input[type="checkbox"]{
   .item2 div {
     width: 200px;
   }
-  .col-sm-8 {
+  .col-sm-8, .col-sm-4 {
     flex: 0 0 100%;
     max-width: 100%;
   }
