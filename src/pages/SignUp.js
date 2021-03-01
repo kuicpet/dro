@@ -2,8 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-import SelectStates from "../components/SelectStates";
-import RefMethods from "../components/RefMethods";
+import { states } from '../components/stateData';
+import { ref_methods } from "../components/refData";
 
 export default function SignUp() {
     const {
@@ -15,6 +15,19 @@ export default function SignUp() {
     } = useForm({
         mode: "onChange",
     });
+    // validate password
+    const validatePassword = (value) => {
+        if (value.length < 8){
+            return "Password should be at-least 8 characters,";
+        } else if (
+            !/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#$*])/.test(value)
+        ){
+            return "Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol";
+        }
+        return true;
+            
+        
+    }
     const onSubmit = async(userData, e) => {
         e.preventDefault();
         console.log("Form Submitted", userData);
@@ -164,7 +177,23 @@ export default function SignUp() {
                         />
                         { errors.city && <p className="errors" >{errors.city.message}</p> }
                     </div>
-                    <SelectStates />
+                    <div>
+                        <div className="label">
+                            <label htmlFor="state">Select State</label>
+                        </div>
+                        <select name="state" ref={register({
+                            required: true
+                        })}>
+                            {states.map(({label, value}) => (
+                                <option
+                                    key={value}
+                                    value={label}
+                                >
+                                    {label}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
                     <div>
                         <div className="label">
                             <label htmlFor="phone">Phone Number</label>
@@ -231,7 +260,8 @@ export default function SignUp() {
                                 minLength: {
                                 value: 8,
                                 message: "Password must have at least 8 characters"
-                                }
+                                },
+                                validate: validatePassword
                             })}
                             style={{ borderColor: errors.password1 && "red" }}
                         />
@@ -254,7 +284,23 @@ export default function SignUp() {
                         />
                         { errors.confirm_password && <p className="errors" >{errors.confirm_password.message}</p> }
                     </div>
-                    <RefMethods/>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="ref_methods">How you heard about us?</label>
+                            <select name="ref_methods" ref={register({
+                                required: true
+                            })}>
+                                {ref_methods.map(({id,name}) => (
+                                    <option
+                                        key={id}
+                                        value={id}
+                                    >
+                                        {name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
                     <button
                         className="btn"
                         type="submit"

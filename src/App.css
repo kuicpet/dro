@@ -94,7 +94,7 @@
   width: 40%;
   object-fit: contain;
   transition: all 500ms ease;
- transform: translateY(0);
+  transform: translateY(0);
   animation: upDown 12s ease-in-out infinite;
 }
 .register, .login {
