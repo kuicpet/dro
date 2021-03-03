@@ -14,6 +14,10 @@ import caseNote from "../images/cv-icon.png";
 import prescription from "../images/capsule-icon.png";
 import diagnostics from "../images/thermameter-icon.png";
 import basket from "../images/shopping-icon.png";
+import family from "../images/family-icon.png";
+import user from "../images/user.svg";
+import calender from "../images/calendar-icon.png";
+import clock from "../images/clock-icon.png";
 
 
 export default function UserDashboard() {
@@ -175,23 +179,54 @@ export default function UserDashboard() {
                             </div>
                             <p className="my-3 pg">Services</p>
                             <div className="practitioners_services">
-                                <p>Immediate Consultations</p>
-                                <small>See a practitioner within 20minutes</small>
+                                <img src={clock} alt="" />
+                                <div>
+                                    <p>Immediate Consultations</p>
+                                    <small>See a practitioner within 20minutes</small>
+                                </div>
                             </div>
                             <div className="practitioners_consultations">
-                                <p>Consultations at a later time</p>
-                                <small>Book an appointment for a day/time of your choice</small>
+                                <img src={calender} alt="" />
+                                <div>
+                                    <p>Consultations at a later time</p>
+                                    <small>Book an appointment for a day/time of your choice</small>
+                                </div>
                             </div>
                             <p className="pg">Preferred Practitioners</p>
-                            <div className="practitioners_preferred"></div>
+                            <div className="practitioners_preferred">
+                                <p>
+                                    No preferred practitioners yet!<br/>
+                                    To add preferred practitioners,serach for practitioners and tap the heart.
+                                </p>
+                            </div>
                         </Tab.Pane>
                         <Tab.Pane eventKey="#Link4">
                             <div className="profile_details">
-                                <div className="profile_img"></div>
-                                <div className="profile_contents"></div>
+                                <div className="profile_img">
+                                    <img src={user} alt="" />
+                                </div>
+                                <div className="profile_contents">
+                                    <div>
+                                        <p>Kingsley Umujeyan</p>
+                                        <p>Lagos,Nigeria</p>
+                                    </div>
+                                    <div>
+                                        <p className="upper">Weight</p>
+                                        <p>0.0kg</p>
+                                    </div>
+                                    <div>
+                                        <p className="upper">Blood Type</p>
+                                        <p>-</p>
+                                    </div>
+                                    <div>
+                                        <p className="upper">Height</p>
+                                        <p>0.00m</p>
+                                    </div>
+                                </div>
                             </div>
                             <div className="profile_others">
                                 <div className="profile_family">
+                                    <img src={family} alt=""/>
                                     <p>My Family</p>
                                 </div>
                                 <div className="profile_wallet">
