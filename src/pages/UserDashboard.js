@@ -5,6 +5,15 @@ import men from "../images/male-icon.png";
 import women from "../images/female-icon.png";
 import medicineBox from "../images/medicine-box-2-icon.png";
 import brain from "../images/human-brain-icon.png";
+import wallet from "../images/Wallet-icon.png";
+import messages from "../images/sms-icon.png";
+import notes from "../images/notes-icon.png";
+import appointment from "../images/checklist-icon.png";
+import conversation from "../images/conversation-icon.png";
+import caseNote from "../images/cv-icon.png";
+import prescription from "../images/capsule-icon.png";
+import diagnostics from "../images/thermameter-icon.png";
+import basket from "../images/shopping-icon.png";
 
 
 export default function UserDashboard() {
@@ -31,7 +40,7 @@ export default function UserDashboard() {
                     <Tab.Content>
                         <Tab.Pane eventKey="#Link1">
                             <div className="item1"></div>
-                            <p>Services</p>
+                            <p className="pg">Services</p>
                             <div className="item2">
                                 <div className="now">
                                     <p>See a Practitioner Now</p>
@@ -49,20 +58,22 @@ export default function UserDashboard() {
                                     <p>Book an Appointment</p>
                                 </div>
                             </div>
-                            <p>Essentails</p>
+                            <p className="pg">Essentails</p>
                             <div className="item3">
-                                <div>
+                                <div className="my_wallet">
+                                    <img src={wallet} alt="" />
                                     <p>Fund Wallet (Current Balance - N0.0)</p>
                                 </div>
                                 <div className="my_health">
                                     <img src={medicineBox} alt=""/>
                                     <p>My Health</p>
                                 </div>
-                                <div>
+                                <div className="my_messages">
+                                    <img src={messages} alt="" />
                                     <p>Post Appointment Messages</p>
                                 </div>
                             </div>
-                            <p>Specialised Services</p>
+                            <p className="pg">Specialised Services</p>
                             <div className="item4">
                                 <div className="brain">
                                     <img src={brain} alt="" />
@@ -80,32 +91,45 @@ export default function UserDashboard() {
                         </Tab.Pane>
                         <Tab.Pane eventKey="#Link2">
                             <div className="item5">
-                                <div>
+                                <div className="my_notes">
+                                    <img src={notes} alt="" />
                                     <p>Notes</p>
                                 </div>
-                                <div>
+                                <div className="conversation">
+                                    <img src={conversation} alt=""/>
                                     <p>Messages</p>
                                 </div>
-                                <div>
+                                <div className="my_appointments">
+                                    <img src={appointment} alt="" />
                                     <p>Appointments</p>
                                     <small>- Upcoming & Previous appointments</small>
                                 </div>
                             </div>
                             <div className="item6">
                                 <div className="cases">
-                                    <p>Cases</p>
-                                    <small>Open and closed Cases</small>
+                                    <img src={caseNote} alt="" />
+                                    <div>
+                                        <p>Cases</p>
+                                        <small>Open and closed Cases</small>
+                                    </div>
                                 </div>
                                 <div className="cases_others">
-                                    <div>
-                                        <p>Presciptions</p>
+                                    <div className="prescriptions">
+                                        <img src={prescription} alt="" />
+                                        <div>
+                                            <p>Presciptions</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p>Diagnotics</p>
-                                    </div>
+                                    <div className="diagnostics">
+                                        <img src={diagnostics} alt="" />
+                                        <div>
+                                            <p>Diagnostics</p>
+                                        </div>
+                                                                            </div>
                                 </div>
                             </div>
                             <div className="item7">
+                                <img src={basket} alt="" />
                                 <div>
                                     <h2>Orders</h2>
                                 </div>
@@ -149,7 +173,7 @@ export default function UserDashboard() {
                                     </div>
                                 </div>
                             </div>
-                            <p className="my-3">Services</p>
+                            <p className="my-3 pg">Services</p>
                             <div className="practitioners_services">
                                 <p>Immediate Consultations</p>
                                 <small>See a practitioner within 20minutes</small>
@@ -158,7 +182,7 @@ export default function UserDashboard() {
                                 <p>Consultations at a later time</p>
                                 <small>Book an appointment for a day/time of your choice</small>
                             </div>
-                            <p>Preferred Practitioners</p>
+                            <p className="pg">Preferred Practitioners</p>
                             <div className="practitioners_preferred"></div>
                         </Tab.Pane>
                         <Tab.Pane eventKey="#Link4">

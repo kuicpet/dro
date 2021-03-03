@@ -46,7 +46,6 @@
 }
 
 .navlinks , a {
-  margin-left: auto;
   font-weight: 500;
   color: rgba(0,0,0,0.40);
   transition: all 500ms ease;
@@ -189,6 +188,7 @@ input[type="checkbox"]{
 }
 .btn:hover {
   opacity: 0.9;
+  color: var(--dro-white);
 }
 
 .my-3 {
@@ -204,7 +204,7 @@ input[type="checkbox"]{
   height: 100%;
   background-color: var(--dro-white);
   cursor: pointer;
-  transition: all 500ms ease;
+  transition: all .3s ease;
 }
 
 .list-group-item.active {
@@ -266,7 +266,7 @@ input[type="checkbox"]{
   grid-template-columns: repeat(3,1fr);
   column-gap: 1rem;
   height: 10rem;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 .item6 {
   display: grid;
@@ -277,8 +277,8 @@ input[type="checkbox"]{
 }
 .item3 div,
 .item4 div,
-.item5 div,
-.cases {
+.item5 div
+ {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -288,9 +288,17 @@ input[type="checkbox"]{
   padding: 0.5rem;
   border-radius: 10px;
   border: 1px solid #e3e3e3;
+  transition: all 500ms ease;
+}
+.cases {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+  justify-content: center;
+  transition: all 500ms ease;
 }
 .item3 div {
-  background-color: lightsalmon;
+  background-color: #ffa07ae3;
 }
 .item4 div, .item5 div, .cases {
   background-color: var(--dro-white);
@@ -313,6 +321,7 @@ input[type="checkbox"]{
   text-align: center;
   border-radius: 5px;
   border: 1px solid #e3e3e3;
+  transition: all 500ms ease;
 }
 .cases_others p {
   padding: 0;
@@ -331,6 +340,7 @@ input[type="checkbox"]{
   background-color: var(--dro-white);
   border-radius: 10px;
   border: 1px solid #e3e3e3;
+  transition: all 500ms ease;
 }
 .practitioners_view , .profile_details {
   display: grid;
@@ -348,6 +358,7 @@ input[type="checkbox"]{
   margin: 0 0.5rem;
   background-color: var(--dro-white);
   border: 1px solid #e3e3e3;
+  transition: all 500ms ease;
 }
 .view_single {
   display: grid;
@@ -363,6 +374,7 @@ input[type="checkbox"]{
   padding: 0.1rem;
   height: 5rem;
   border: 1px solid #e3e3e3;
+  transition: all 500ms ease;
 }
 .view_single p {
   font-size: 0.8rem;
@@ -398,6 +410,7 @@ input[type="checkbox"]{
   padding: 0.1rem;
   height: 5rem;
   border: 1px solid #e3e3e3;
+  transition: all 500ms ease;
 }
 .now, .test {
   background-color: lightblue;
@@ -411,8 +424,54 @@ input[type="checkbox"]{
 .men img,
 .women img,
 .my_health img,
-.brain img {
+.brain img,
+.my_wallet img,
+.my_messages img,
+.my_notes img,
+.conversation img,
+.my_appointments img
+ {
   width: 40%;
+}
+.cases img {
+  vertical-align: center;
+  width: 50%;
+}
+
+.diagnostics,
+.prescriptions,
+.item7 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.diagnostics img,
+.prescriptions img {
+  width: 18%;
+  vertical-align: middle; 
+  margin-left: 2rem;
+}
+
+.diagnostics p,
+.prescriptions p
+{
+  margin: 0 auto;
+}
+.item7 h2 {
+  text-align: left;
+}
+.pg {
+  font-weight: 600;
+}
+
+.item5 div:hover,
+.item6 .cases:hover,
+.item6 .prescriptions:hover,
+.item6 .diagnostics:hover,
+.item7:hover {
+  transform: translateY(-5px);
 }
 
 @media screen and (max-width: 799px){

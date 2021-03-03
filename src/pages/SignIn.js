@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
@@ -14,13 +15,15 @@ export default function SignIn() {
     const onSubmit = async(data, e) => {
         e.preventDefault();
         console.log("Form Submitted", data);
-        // make api call here
+        // make api
+        axios.post("https://dev.drohealth.com/patients/api/login/",data)
+            .then((res) => {
+                console.log(res);
+            })
     }
     return (
         <div className="login">
-            <div className="login_contents">
-               
-            </div>
+            <div className="login_contents"></div>
             <div className="login_form my-3">
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="form">
