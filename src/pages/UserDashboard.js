@@ -18,6 +18,8 @@ import family from "../images/family-icon.png";
 import user from "../images/user.svg";
 import calender from "../images/calendar-icon.png";
 import clock from "../images/clock-icon.png";
+import cart from "../images/medicine-cart-icon.png";
+import covid from "../images/coronavirus.svg";
 
 
 export default function UserDashboard() {
@@ -47,18 +49,23 @@ export default function UserDashboard() {
                             <p className="pg">Services</p>
                             <div className="item2">
                                 <div className="now">
+                                    <img src={clock} alt="" />
                                     <p>See a Practitioner Now</p>
                                 </div>
                                 <div className="medication">
+                                    <img src={cart} alt="" />
                                     <p>Order Medication</p>
                                 </div>
                                 <div className="test">
+                                    <img src={diagnostics} alt="" />
                                     <p>Book a Diagnostic Test</p>
                                 </div>
                                 <div className="covid">
+                                    <img src={covid} alt="" />
                                     <p>Covid-19 Symptom Diary</p>
                                 </div>
                                 <div className="book">
+                                    <img src={appointment} alt="" />
                                     <p>Book an Appointment</p>
                                 </div>
                             </div>

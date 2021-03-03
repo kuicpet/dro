@@ -263,6 +263,7 @@ input[type="checkbox"]{
 .practitioners_services:hover,
 .practitioners_consultations:hover {
   transform: translateY(-5px);
+  box-shadow:  0 5px 20px -5px rgba(0, 0, 0, 0.5);
 }
 .item2 {
   display: grid;
@@ -282,8 +283,14 @@ input[type="checkbox"]{
   padding: 0.5rem;
   transition: all 500ms ease;
 }
-.item2 div:hover {
+.item2 img {
+  width: 50%;
+}
+.item2 div:hover,
+.item3 div:hover,
+.item4 div:hover {
   transform: translateY(-5px);
+  box-shadow:  0 5px 20px -5px rgba(0, 0, 0, 0.5);
 }
 .item3, .item4, .item5 {
   display: grid;
@@ -454,6 +461,7 @@ input[type="checkbox"]{
 }
 .profile_others div:hover {
   transform: translateY(-5px);
+  box-shadow:  0 5px 20px -5px rgba(0, 0, 0, 0.5);
 }
 .now, .test {
   background-color: lightblue;
@@ -518,6 +526,7 @@ input[type="checkbox"]{
 .item6 .diagnostics:hover,
 .item7:hover {
   transform: translateY(-5px);
+  box-shadow:  0 5px 20px -5px rgba(0, 0, 0, 0.5);
 }
 
 .profile_wallet img,
