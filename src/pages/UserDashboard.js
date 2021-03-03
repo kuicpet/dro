@@ -21,7 +21,7 @@ export default function UserDashboard() {
         <Tab.Container defaultActiveKey="#Link1">
             <Row>
                 <Col sm={4}>
-                    <ListGroup fixed="top">
+                    <ListGroup>
                         <ListGroup.Item action href="#Link1">
                             Home
                         </ListGroup.Item>
@@ -191,16 +191,19 @@ export default function UserDashboard() {
                                 <div className="profile_contents"></div>
                             </div>
                             <div className="profile_others">
-                                <div>
+                                <div className="profile_family">
                                     <p>My Family</p>
                                 </div>
-                                <div>
+                                <div className="profile_wallet">
+                                    <img src={wallet} alt="" />
                                     <p>My Wallet</p>
                                 </div>
-                                <div>
+                                <div className="profile_health">
+                                    <img src={medicineBox} alt="" />
                                     <p>My Health</p>
                                 </div>
-                                <div>
+                                <div className="profile_orders">
+                                    <img src={basket} alt="" />
                                     <p>My Orders</p>
                                 </div>
                             </div>
