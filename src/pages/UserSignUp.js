@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from 'formik';
 import axios from "axios";
@@ -7,12 +7,11 @@ import { states } from "../components/stateData";
 import { ref_methods } from "../components/refData";
 
 export default function UserSignUp() {
-
     const history = useHistory();
-    
+
     useEffect(() => {
         if(localStorage.getItem("token") !== null){
-            return history.pushState("/signin")
+            return history.push("/signin")
         }
     })
     return (
@@ -43,8 +42,13 @@ export default function UserSignUp() {
                                 console.log(res);
                                 if(res.status === 201){
                                     localStorage.setItem("token", "X-CSRFToken");
+                                    return history.push("/signin")
                                 }
-                            }).catch((error) => {
+
+                            }).then((data) => {
+                                localStorage.setItem("data", JSON.stringify(data));
+                            })
+                            .catch((error) => {
                                 console.log(error)
                             })
                     }}
@@ -52,55 +56,55 @@ export default function UserSignUp() {
                     <Form className="form">
                         <div>
                             <div className="label">
-                                <label htmlfor="user.username">Username</label>
+                                <label htmlFor="user.username">Username</label>
                             </div>
                             <Field  type="text" name="user.username" placeholder="Username" required/>
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="user.first_name">First Name</label>
+                                <label htmlFor="user.first_name">First Name</label>
                                 <Field  type="text" name="user.first_name" placeholder="First Name" required/>
                             </div>
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="user.last_name">Last Name</label>
+                                <label htmlFor="user.last_name">Last Name</label>
                                 <Field  type="text" name="user.last_name" placeholder="Last Name" required/>
                             </div>
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="user.email">Email Address</label>
+                                <label htmlFor="user.email">Email Address</label>
                                 <Field  type="email" name="user.email" placeholder="Email" required/>
                             </div>
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="password">Password( min 8 Characters )</label>
+                                <label htmlFor="password">Password( min 8 Characters )</label>
                                 <Field  type="password" name="user.password" placeholder="Password" required/>
                             </div>
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="confirm_password">Confirm Password</label>
+                                <label htmlFor="confirm_password">Confirm Password</label>
                             </div>
                             <Field  type="password" name="confirm_password" placeholder="Confirm Password" required/>
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="phone">Phone No</label>
+                                <label htmlFor="phone">Phone No</label>
                             </div>
                             <Field  type="tel" name="phone" placeholder="Phone No" />
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="birth_date">Birth Date</label>
+                                <label htmlFor="birth_date">Birth Date</label>
                                 <Field  type="date" name="birth_date" placeholder="" />
                             </div>
                         </div>
                         <div>
                             <div className="label">
-                                <label htnlfor="gender">Gender</label>
+                                <label htnlFor="gender">Gender</label>
                             </div>
                             <Field name="gender" as="select">
                                 <option value="male">Male</option>
@@ -109,13 +113,13 @@ export default function UserSignUp() {
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="city">City</label>
+                                <label htmlFor="city">City</label>
                                 <Field  name="city" placeholder="City" />
                             </div>
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="state">State</label>
+                                <label htmlFor="state">State</label>
                             </div>
                             <Field name="state" as="select">
                             {states.map(({label, value}) => (
@@ -130,7 +134,7 @@ export default function UserSignUp() {
                         </div>
                         <div>
                             <div className="label">
-                                <label htmlfor="">How did You Hear About us</label>
+                                <label htmlFor="ref_methods">How did You Hear About us</label>
                             </div>
                             <Field name="ref_methods" as="select">
                                 {ref_methods.map(({id,name}) => (

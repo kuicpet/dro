@@ -3,12 +3,13 @@ import { Link, useHistory } from 'react-router-dom';
 import logo from '../images/logo-768x138.png';
 
 export default function Header() {
+    
     const history = useHistory();
     const isLoggedIn = () => {
         return localStorage.getItem("token") !== null;
     }
     const signOut = () => {
-        localStorage.clear();
+        localStorage.removeItem("token");
         return history.push("/signin");
     }
     return (
@@ -25,6 +26,7 @@ export default function Header() {
                     <Link
                         onClick={()=> signOut()}
                         className="signout"
+                        
                     >
                         Sign out
                     </Link>

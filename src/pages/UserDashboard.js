@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Tab, Row, ListGroup } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 import men from "../images/male-icon.png"; 
 import women from "../images/female-icon.png";
@@ -23,6 +24,11 @@ import covid from "../images/coronavirus.svg";
 
 
 export default function UserDashboard() {
+
+    const history = useHistory();
+    const seeDoctor = () => {
+       return  history.push("/doctor")
+    }
     return (
         <Tab.Container defaultActiveKey="#Link1">
             <Row>
@@ -48,7 +54,7 @@ export default function UserDashboard() {
                             <div className="item1"></div>
                             <p className="pg">Services</p>
                             <div className="item2">
-                                <div className="now">
+                                <div className="now" onClick={() => seeDoctor()}>
                                     <img src={clock} alt="" />
                                     <p>See a Practitioner Now</p>
                                 </div>

@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 import SignIn from './pages/UserSignIn';
 import SignUp from './pages/UserSignUp';
 import UserDashboard from './pages/UserDashboard';
+import AvailableDoctors from "./pages/Doctor";
 
 export default function App() {
 
@@ -38,6 +39,7 @@ export default function App() {
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/signin" component={SignIn}/>
         <SecureRoute exact path="/dashboard" component={UserDashboard}/>
+        <SecureRoute exact path="/doctor" component={AvailableDoctors}/>
         <Route component={NotFound}/>
       </Switch>
     </div>
