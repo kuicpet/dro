@@ -5,6 +5,7 @@ import axios from "axios";
 
 import { states } from "../components/stateData";
 import { ref_methods } from "../components/refData";
+import { gender } from "../components/genderData";
 
 export default function UserSignUp() {
     const history = useHistory();
@@ -107,8 +108,14 @@ export default function UserSignUp() {
                                 <label htnlFor="gender">Gender</label>
                             </div>
                             <Field name="gender" as="select">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                {gender.map(({label, value}) => (
+                                    <option
+                                        key={value}
+                                        value={label}
+                                    >
+                                        {label}
+                                    </option>
+                                ))}
                             </Field>
                         </div>
                         <div>
