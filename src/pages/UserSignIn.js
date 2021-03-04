@@ -36,13 +36,13 @@ export default function UserSignIn() {
                             <div className="label">
                                 <label htmlFor="username">Username</label>
                             </div>
-                            <Field type="text" name="username" placeholder="Username"  />
+                            <Field type="text" name="username" placeholder="Username" required/>
                         </div>
                         <div>
                             <div className="label">
                                 <label htmlFor="password">Password</label>
                             </div>
-                            <Field type="password" name="password" placeholder="Password" />
+                            <Field type="password" name="password" placeholder="Password" required/>
                         </div>
                         <button type="submit" className="btn">Login</button>
                     </Form>

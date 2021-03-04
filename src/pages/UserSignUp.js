@@ -44,20 +44,74 @@ export default function UserSignUp() {
                     }}
                 >
                     <Form className="form">
-                        <Field  type="text" name="username" placeholder="Username" />
-                        <Field  type="text" name="first_name" placeholder="First Name" />
-                        <Field  type="text" name="last_name" placeholder="Last Name" />
-                        <Field  type="email" name="email" placeholder="Email" />
-                        <Field  type="password" name="password" placeholder="Password" />
-                        <Field  type="password" name="confirm_password" placeholder="Confirm Password" />
-                        <Field  type="tel" name="phone" placeholder="Phone No" />
-                        <Field  type="date" name="birth_date" placeholder="" />
-                        <Field name="gender" as="select">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </Field>
-                        <Field  name="city" placeholder="City" />
-                        <Field name="state" as="select">
+                        <div>
+                            <div className="label">
+                                <label htmlFor="user.username">Username</label>
+                            </div>
+                            <Field  type="text" name="user.username" placeholder="Username" required/>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="user.first_name">First Name</label>
+                                <Field  type="text" name="user.first_name" placeholder="First Name" required/>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="user.last_name">Last Name</label>
+                                <Field  type="text" name="user.first_name" placeholder="Last Name" required/>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="user.email">Email Address</label>
+                                <Field  type="email" name="user.email" placeholder="Email" required/>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="password">Password( min 8 Characters )</label>
+                                <Field  type="password" name="user.password" placeholder="Password" required/>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="confirm_password">Confirm Password</label>
+                            </div>
+                            <Field  type="password" name="confirm_password" placeholder="Confirm Password" required/>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="phone">Phone No</label>
+                            </div>
+                            <Field  type="tel" name="phone" placeholder="Phone No" />
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="birth_date">Birth Date</label>
+                                <Field  type="date" name="birth_date" placeholder="" />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htnlFor="gender">Gender</label>
+                            </div>
+                            <Field name="gender" as="select">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </Field>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor=""city>City</label>
+                                <Field  name="city" placeholder="City" />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="state">State</label>
+                            </div>
+                            <Field name="state" as="select">
                             {states.map(({label, value}) => (
                                 <option
                                     key={value}
@@ -67,7 +121,12 @@ export default function UserSignUp() {
                                 </option>
                             ))}
                         </Field>
-                        <Field name="ref_methods" as="select">
+                        </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor="">How did You Hear About us</label>
+                            </div>
+                            <Field name="ref_methods" as="select">
                                 {ref_methods.map(({id,name}) => (
                                     <option
                                         key={id}
@@ -76,7 +135,8 @@ export default function UserSignUp() {
                                         {name}
                                     </option>
                                 ))}
-                        </Field>
+                            </Field>
+                        </div>
                         <button type="submit" className="btn">Register</button>
                     </Form>
                 </Formik>
