@@ -12,11 +12,16 @@ export default function SignIn() {
     } = useForm({
         mode: "onChange",
     });
+
     const onSubmit = async(data, e) => {
         e.preventDefault();
         console.log("Form Submitted", data);
+        const headers = {
+            "content-type": "application/json",
+            "token": "X-CSRFToken"
+        }
         // make api
-        axios.post("https://dev.drohealth.com/patients/api/login/",data)
+        axios.post("https://dev.drohealth.com/patients/api/login/", data, headers)
             .then((res) => {
                 console.log(res);
             })

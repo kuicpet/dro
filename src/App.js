@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import SignUp from './pages/UserSignUp';
 import UserDashboard from './pages/UserDashboard';
 
 export default function App() {

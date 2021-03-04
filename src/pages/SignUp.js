@@ -1,14 +1,17 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { useForm, useFieldArray } from 'react-hook-form';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import { states } from '../components/stateData';
 import { ref_methods } from "../components/refData";
 
+
+
 export default function SignUp() {
     const {
-        register, 
+        register,
+        control,
         handleSubmit, 
         errors, 
         getValues, 
@@ -16,6 +19,11 @@ export default function SignUp() {
     } = useForm({
         mode: "onChange",
     });
+    const { fields, append } = useFieldArray({
+        control,
+        name: "user"
+    })
+    
     // validate password
     const validatePassword = (value) => {
         if (value.length < 8){
@@ -32,29 +40,38 @@ export default function SignUp() {
     const onSubmit = async(formData, e) => {
         e.preventDefault();
         console.log("Form Submitted", formData);
-       
-        // Make api call here
+       try {
+           // Make api call here
         axios.post("https://dev.drohealth.com/patients/api/create/", formData)
-            .then((res) => {
-                console.log(res)
-            })
+        .then((res) => {
+            console.log(res);
+            alert("Your registration was successfully submitted!");
+            if(res.data.status === true){
+                useHistory.push("/signin")
+            } else {
+                console.log("Error")
+            }
+        })
+       } catch (error) {
+           alert(`Registration Failed! ${error.message}`)
+       }
     }
 
     return (
         <div className="register">
-            <div className="register_contents">
-                
-            </div>
+            <div className="register_contents"></div>
             <div className="register_form my-3">
                 <h1>Sign Up</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="form">
-                    <div>
-                        <div className="label">
-                            <label htmlFor="username">Username</label>
-                        </div>
-                        <input
+                    {fields.map(({ id }, index) => (
+                        <>
+                        <div key={id}>
+                             <div className="label">
+                                <label htmlFor={`user[${index}].username`}>Username</label>
+                            </div>
+                            <input
                             type="text"
-                            name="username"
+                            name={`user[${index}].username`}
                             className="username"
                             placeholder="Username"
                             ref={register({
@@ -71,35 +88,38 @@ export default function SignUp() {
                             style={{ borderColor: errors.username && "red" }} 
                         />
                          { errors.username && <p className="errors" >{errors.username.message}</p> }
-                    </div>
-                    <div>
-                        <div className="label">
-                            <label htmlFor="first_name">First Name</label>
                         </div>
-                        <input 
-                            type="text"
-                            name="first_name"
-                            className="firstName"
-                            placeholder="First name"
-                            ref={register({
-                                required: "Please enter your first name",
-                            maxLength: {
-                                value: 50,
-                                message: "First Name should be maximum length of 50 characters"
-                            },
-                            minLength: {
-                                value: 3,
-                                message: "First name should be minimum length of 3 characters"
-                            },
-                            pattern: {
-                                value: /^[A-Za-z]+$/i,
-                                message: "First Name should contain only uppercase or lower case letters"
-                            },
-                            })}
-                            style={{ borderColor: errors.first_name && "red" }} 
-                        />
-                        { errors.first_name && <p className="errors" >{errors.first_name.message}</p> }
-                    </div>
+                        <div>
+                            <div className="label">
+                                <label htmlFor={`user[${index}].first_name`}>First Name</label>
+                            </div>
+                            <input 
+                                type="text"
+                                name={`user[${index}].first_name`}
+                                className="firstName"
+                                placeholder="First name"
+                                ref={register({
+                                    required: "Please enter your first name",
+                                maxLength: {
+                                    value: 50,
+                                    message: "First Name should be maximum length of 50 characters"
+                                },
+                                minLength: {
+                                    value: 3,
+                                    message: "First name should be minimum length of 3 characters"
+                                },
+                                pattern: {
+                                    value: /^[A-Za-z]+$/i,
+                                    message: "First Name should contain only uppercase or lower case letters"
+                                },
+                                })}
+                                style={{ borderColor: errors.first_name && "red" }} 
+                            />
+                            { errors.first_name && <p className="errors" >{errors.first_name.message}</p> }
+                        </div>
+                        </>
+                        ))}
+                    
                     <div>
                         <div className="label">
                             <label htmlFor="last_name">Last Name</label>
@@ -309,9 +329,12 @@ export default function SignUp() {
                     <button
                         className="btn"
                         type="submit"
-                        disabled={ !isDirty || isSubmitting }>
+                        disabled={ !isDirty || isSubmitting }
+                       
+                        >
                         Register
                     </button>
+                    <button  onClick={() => append({name: "user"})}>Next</button>
                     <p className="my-3">
                         Already have an Account?
                         <Link to="/signin" className="mx-3">Login</Link>
