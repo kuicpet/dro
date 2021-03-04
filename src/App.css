@@ -558,6 +558,7 @@ input[type="checkbox"]{
   display: grid;
   grid-template-columns: repeat(5,1fr);
   column-gap: 1rem;
+  
 }
 .time-slot div {
   display: flex;
@@ -565,6 +566,7 @@ input[type="checkbox"]{
   justify-content: center;
   border: 1px solid #e3e3e3;
   text-align: center;
+  cursor: pointer;
 }
 .time-slot p {
   padding: 0;

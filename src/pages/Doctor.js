@@ -20,7 +20,7 @@ useEffect(() => {
 
     return (
         <div className="doctors">
-            <p>See Available Practitoners</p>
+            <p className="mt-5 mb-3">See Available Practitoners</p>
             <div className="time-slot">
                 <div>
                     <p>8:00am</p>
