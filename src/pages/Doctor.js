@@ -19,8 +19,30 @@ useEffect(() => {
 })
 
     return (
-        <div>
-            <h1>See Available Practitoners</h1>
+        <div className="doctors">
+            <p>See Available Practitoners</p>
+            <div className="time-slot">
+                <div>
+                    <p>8:00am</p>
+                </div>
+                <div>
+                    <p>9:00am</p>
+                </div>
+                <div>
+                    <p>10:00am</p>
+                </div>
+                <div>
+                    <p>11:00am</p>
+                </div>
+                <div>
+                    <p>12:00 noon</p>
+                </div>
+            </div>
+            <div className="doctors_list">
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
         </div>
     )
 }

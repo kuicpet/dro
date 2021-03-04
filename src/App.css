@@ -546,6 +546,31 @@ input[type="checkbox"]{
   width: 80%;
   vertical-align: middle;
 }
+
+/*Doctors*/
+.doctors {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+.time-slot {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  column-gap: 1rem;
+}
+.time-slot div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e3e3e3;
+  text-align: center;
+}
+.time-slot p {
+  padding: 0;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 799px){
   .profile_others {
     grid-template-columns: repeat(2,1fr);
