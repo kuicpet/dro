@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Link, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from 'formik';
 import axios from "axios";
 
@@ -7,7 +7,14 @@ import { states } from "../components/stateData";
 import { ref_methods } from "../components/refData";
 
 export default function UserSignUp() {
+
+    const history = useHistory();
     
+    useEffect(() => {
+        if(localStorage.getItem("token") !== null){
+            return history.pushState("/signin")
+        }
+    })
     return (
         <div className="register">
             <div className="register_contents"></div>

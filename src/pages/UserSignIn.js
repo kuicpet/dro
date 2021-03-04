@@ -18,12 +18,13 @@ export default function UserSignIn() {
                     onSubmit={values => {
                         console.log(values);
                         const headers = {
-                            "X-CSRFToken":"X-CSRFToken"
+                            "token":"X-CSRFToken"
                         }
                         axios.post("https://dev.drohealth.com/patients/api/login/",values, headers)
                             .then((res) => {
                                 console.log(res)
                                 if(res.status === 200){
+                                    localStorage.setItem("token", "")
                                     history.push("/dashboard")
                                 }
                             }).catch((error) => {
