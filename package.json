@@ -15,8 +15,9 @@
     "react-hook-form": "^6.15.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "swal": "^0.1.0",
-    "web-vitals": "^1.0.1"
+    "sweetalert": "^2.1.2",
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",

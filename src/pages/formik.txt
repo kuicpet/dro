@@ -1,0 +1,144 @@
+import React from 'react';
+import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
+import { Formik, Form, Field } from 'formik';
+
+
+import { states } from '../components/stateData';
+import { ref_methods } from "../components/refData";
+
+
+export default function UserSignUp() {
+    const history = useHistory();
+    
+    return (
+        <div className="register">
+            <div className="register_contents"></div>
+                <div className="register_form my-3">
+                <h1>Sign Up</h1>
+            <Formik
+                initialValues={{
+                    user: {
+                        username: '',
+                        first_name: '',
+                        last_name: '',
+                        email: '',
+                        password: '',
+                    },
+                    phone: "",
+                    birth_date: "",
+                    gender: "",
+                    city: "",
+                    state: "",
+                    ref_methods: "",
+                }}
+                onSubmit={values => {
+                    console.log(values)
+                    /***
+                    axios.post("https://dev.drohealth.com/patients/api/create/", values)
+                    .then((res) => {
+                        console.log(res);
+                        if(res.status === 201){
+                            alert("Account successfully created")
+                            history.push("/signin")
+                        }
+                    })
+                    .catch((error) => {
+                       alert(error)
+                    })*/
+
+                }}
+            >
+                <Form className="form">
+                    <div>
+                        <div className="label">
+                            <label htmlFor="user.username">Username</label>
+                        </div>
+                        <Field  name="user.username" type="text" placeholder="Username" required/>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="">First Name</label>
+                        </div>
+                        <Field  name="user.first_name" type="text" placeholder="First Name" required/>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="">Last name</label>
+                        </div>
+                        <Field  name="user.last_name" type="text" placeholder="Last Name" required/>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="">Email</label>
+                        </div>
+                        <Field  name="user.email" type="email" placeholder="Email" required/>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="">Password</label>
+                        </div>
+                        <Field  name="user.password" type="password" placeholder="Password" required/>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="">Confirm Password</label>
+                        </div>
+                        <Field name="confirm_password" type="password" placeholder="Confirm Password"  required/>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="">Phone No</label>
+                        </div>
+                        <Field  name="phone" type="tel" placeholder="Phone Number" required/>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor={`gender`}>Gender</label>
+                        </div>
+                        <select name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="birth_date">Birth Date</label>
+                        </div>
+                        <Field name="birth_date" type="date" required/>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="">City</label>
+                        </div>
+                        <Field name="city" placeholder="City" required />
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="state">State</label>
+                        </div>
+                        <Field name="state" as="select">
+                            <option value="abia">Abia</option>
+                            <option value="adamawa">Adamawa</option>
+                        </Field>
+                    </div>
+                    <div>
+                        <div className="label">
+                            <label htmlFor="">How You Heard about Us</label>
+                        </div>
+                        <Field name="ref_methods" as="select">
+                            <option value="1">Facebook</option>
+                            <option value="2">Twitter</option>
+                        </Field>    
+                    </div>
+                    <button type="submit" className="btn">Submit</button>
+                    <p className="my-3">
+                        Already have an Account?
+                        <Link to="/signin" className="mx-3">Login</Link>
+                    </p>
+                </Form>
+            </Formik>
+                </div>
+        </div>
+    )
+}
