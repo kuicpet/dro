@@ -7,14 +7,16 @@ import { states } from "../components/stateData";
 import { ref_methods } from "../components/refData";
 import { gender } from "../components/genderData";
 
-export default function UserSignUp() {
-    const history = useHistory();
 
+export default function UserSignUp() {
+    
+    const history = useHistory();
     useEffect(() => {
         if(localStorage.getItem("token") !== null){
             return history.push("/signin")
         }
     })
+
     return (
         <div className="register">
             <div className="register_contents"></div>
@@ -59,18 +61,36 @@ export default function UserSignUp() {
                             <div className="label">
                                 <label htmlFor="user.username">Username</label>
                             </div>
-                            <Field  type="text" name="user.username" placeholder="Username" required/>
+                            <Field  
+                                type="text" 
+                                name="user.username" 
+                                placeholder="Username"
+                                minLength="4"
+                                maxLength="10" 
+                                required/>
                         </div>
                         <div>
                             <div className="label">
                                 <label htmlFor="user.first_name">First Name</label>
-                                <Field  type="text" name="user.first_name" placeholder="First Name" required/>
+                                <Field  
+                                    type="text" 
+                                    name="user.first_name" 
+                                    placeholder="First Name"
+                                    minLength="2"
+                                    maxLength="20"
+                                    required/>
                             </div>
                         </div>
                         <div>
                             <div className="label">
                                 <label htmlFor="user.last_name">Last Name</label>
-                                <Field  type="text" name="user.last_name" placeholder="Last Name" required/>
+                                <Field  
+                                    type="text" 
+                                    name="user.last_name"
+                                    placeholder="Last Name"
+                                    minLength="2"
+                                    maxLength="20"
+                                    required/>
                             </div>
                         </div>
                         <div>
@@ -82,7 +102,14 @@ export default function UserSignUp() {
                         <div>
                             <div className="label">
                                 <label htmlFor="password">Password( min 8 Characters )</label>
-                                <Field  type="password" name="user.password" placeholder="Password" required/>
+                                <Field  
+                                    type="password" 
+                                    name="user.password" 
+                                    placeholder="Password"
+                                    minLength="8"
+                                    maxLength="20"
+                                    required
+                                />
                             </div>
                         </div>
                         <div>
@@ -95,12 +122,18 @@ export default function UserSignUp() {
                             <div className="label">
                                 <label htmlFor="phone">Phone No</label>
                             </div>
-                            <Field  type="tel" name="phone" placeholder="Phone No" />
+                            <Field  
+                                type="tel" 
+                                name="phone" 
+                                placeholder="Phone No"
+                                pattern="08057521556"
+                                required 
+                                />
                         </div>
                         <div>
                             <div className="label">
                                 <label htmlFor="birth_date">Birth Date</label>
-                                <Field  type="date" name="birth_date" placeholder="" />
+                                <Field  type="date" name="birth_date" placeholder="" required/>
                             </div>
                         </div>
                         <div>

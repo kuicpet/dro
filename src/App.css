@@ -567,6 +567,12 @@ input[type="checkbox"]{
   border: 1px solid #e3e3e3;
   text-align: center;
   cursor: pointer;
+  border-radius: 15px;
+  transition: all 500ms ease;
+}
+.time-slot div:hover {
+  background-color: #1F0737;
+  color: var(--dro-white);
 }
 .time-slot p {
   padding: 0;

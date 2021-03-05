@@ -19,7 +19,7 @@ useEffect(() => {
 })
 
     return (
-        <div className="doctors">
+        <div className="doctors px-3">
             <p className="mt-5 mb-3">See Available Practitoners</p>
             <div className="time-slot">
                 <div>
