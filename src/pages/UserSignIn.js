@@ -26,7 +26,7 @@ export default function UserSignIn() {
                             .then((res) => {
                                 console.log(res)
                                 if(res.status === 200){
-                                    localStorage.setItem("token", "")
+                                    //localStorage.setItem("token")
                                     history.push("/dashboard")
                                 }
                             }).catch((error) => {

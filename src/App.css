@@ -580,6 +580,9 @@ input[type="checkbox"]{
 }
 
 @media screen and (max-width: 799px){
+  .hero_contents h1 {
+    font-size: 2rem;
+  }
   .profile_others {
     grid-template-columns: repeat(2,1fr);
   }

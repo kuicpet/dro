@@ -126,8 +126,8 @@ export default function UserSignUp() {
                                 type="tel" 
                                 name="phone" 
                                 placeholder="Phone No"
-                                pattern="08057521556"
-                                required 
+                                required
+                                size="11"
                                 />
                         </div>
                         <div>
