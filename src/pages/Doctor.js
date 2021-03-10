@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import axios from "axios";
+import { FaRegHeart } from "react-icons/fa";
+
+import doctorImg from "../images/doctor.svg";
 
 export default function Doctor() {
 
@@ -16,7 +19,7 @@ export default function Doctor() {
     }
 useEffect(() => {
     getDoctors();
-})
+},[])
 
     return (
         <div className="doctors px-3">
@@ -40,7 +43,78 @@ useEffect(() => {
             </div>
             <div className="doctors_list">
                 <ul>
-                    <li></li>
+                    <li>
+                        <div className="doctor">
+                            <div className="doctor_container">
+                                <div className="doctor_img">
+                                    <img src={doctorImg} alt="" />
+                                </div>
+                                <div className="doctor_details p-2">
+                                    <b>Dr Ngozi Chika</b>
+                                    <p>General Practitoner</p>
+                                    <p>
+                                        <span>English,</span>
+                                        <span>Igbo</span>
+                                    </p>
+                                </div>
+                                <div className="doctor_like">
+                                    <FaRegHeart/>
+                                </div>
+                            </div>
+                            <div className="doctor_booking">
+                                <span className="amount">N3000</span>
+                                <span className="book_doctor">Book</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="doctor">
+                            <div className="doctor_container">
+                                <div className="doctor_img">
+                                    <img src={doctorImg} alt="" />
+                                </div>
+                                <div className="doctor_details p-2">
+                                    <b>Dr Ngozi Chika</b>
+                                    <p>General Practitoner</p>
+                                    <p>
+                                        <span>English,</span>
+                                        <span>Igbo</span>
+                                    </p>
+                                </div>
+                                <div className="doctor_like">
+                                    <FaRegHeart/>
+                                </div>
+                            </div>
+                            <div className="doctor_booking">
+                                <span className="amount">N3000</span>
+                                <span className="book_doctor">Book</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="doctor">
+                            <div className="doctor_container">
+                                <div className="doctor_img">
+                                    <img src={doctorImg} alt="" />
+                                </div>
+                                <div className="doctor_details p-2">
+                                    <b>Dr Ngozi Chika</b>
+                                    <p>General Practitoner</p>
+                                    <p>
+                                        <span>English,</span>
+                                        <span>Igbo</span>
+                                    </p>
+                                </div>
+                                <div className="doctor_like">
+                                    <FaRegHeart/>
+                                </div>
+                            </div>
+                            <div className="doctor_booking">
+                                <span className="amount">N3000</span>
+                                <span className="book_doctor">Book</span>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -3,7 +3,7 @@
   --dro-black: #000000;
   --dro-purple: #9F5DE2;
   --dro-background: linear-gradient(180deg, #9F5DE2 0%, #0A0A40 100%);
-  --dro-shadow: 0 0px 60px rgba(0,0,0,0.10);
+  --dro-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.5);
   --dro-inputBackground: #f5f0f0;
 }
 
@@ -24,6 +24,7 @@
   width: 100%;
 }
 
+/**Header*/
 .header {
   display: flex;
   align-items: center;
@@ -63,6 +64,7 @@
   text-decoration: none;
 }
 
+/*Hero Page**/
 .hero {
   position: relative;
   display: grid;
@@ -100,6 +102,8 @@
   transform: translateY(0);
   animation: upDown 12s ease-in-out infinite;
 }
+
+/**Register,Login Pages*/
 .register, .login {
   position: relative;
   display: grid;
@@ -578,6 +582,63 @@ input[type="checkbox"]{
   padding: 0;
   margin: 0 auto;
 }
+.doctor {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 12rem;
+  box-shadow: var(--dro-shadow);
+  margin: 3rem auto;
+}
+.doctor_container {
+  display: grid;
+  grid-template-columns: 2fr 6fr 1fr;
+  height: 15rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.doctor_img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.doctor_img img {
+  width: 80%;
+  vertical-align: middle;
+}
+.doctor_details {
+  text-align: left;
+}
+.doctor_like {
+  font-size: 2.5rem;
+  font-weight: 100;
+  color: #e3e3e3;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+.doctor_like:hover {
+  color: red;
+}
+.doctor_booking {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.book_doctor {
+  background-color: var(--dro-purple);
+  color: var(--dro-white);
+  border-radius: 5px;
+  padding: 0.3rem 1.5rem;
+  box-shadow: var(--dro-shadow);
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+.book_doctor:hover {
+  background-color: var(--dro-black);
+  transform: translateY(-5px);
+}
 
 @media screen and (max-width: 799px){
   .hero_contents h1 {
@@ -633,6 +694,9 @@ input[type="checkbox"]{
     border-radius: 0;
     padding: 0.5rem;
     height: 97%;
+  }
+  .doctor {
+    width: 100%;
   }
 }
 
