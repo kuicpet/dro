@@ -154,7 +154,7 @@ export default function UserSignUp() {
                         <div>
                             <div className="label">
                                 <label htmlFor="city">City</label>
-                                <Field  name="city" placeholder="City" />
+                                <Field  name="city" placeholder="City" required/>
                             </div>
                         </div>
                         <div>
