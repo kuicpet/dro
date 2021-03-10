@@ -602,6 +602,7 @@ ul {
   height: 15rem;
   width: 100%;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 .doctor_img {
   display: flex;
@@ -616,7 +617,7 @@ ul {
 .doctor_details {
   text-align: left;
 }
-.doctor_like {
+.doctor_like svg {
   font-size: 2.5rem;
   font-weight: 100;
   color: #e3e3e3;
@@ -624,7 +625,7 @@ ul {
   cursor: pointer;
   padding: 0.5rem;
 }
-.doctor_like:hover {
+.doctor_like svg:hover {
   color: red;
 }
 .doctor_booking {
@@ -646,8 +647,63 @@ ul {
   background-color: var(--dro-black);
   transform: translateY(-5px);
 }
+.book_later button {
+  background-color: var(--dro-purple);
+  color: var(--dro-white);
+  box-shadow: var(--dro-shadow);
+  transition: all 500ms ease;
+}
+.book_later button:hover {
+  background-color: var(--dro-black);
+  transform: translateY(-5px);
+}
+.modal_body {
+  align-items: center;
+}
+.modal_img, .modal_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modal_img img {
+  width: 30%;
+}
+.modal_list {
+  display: flex;
+  flex-direction: column;
+}
+.list_item  {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.list_item2 {
+  margin-left: auto;
+}
+.bookingBtn {
+  display: block;
+  width: 80%;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  background-color: var(--dro-purple);
+  color: var(--dro-white);
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  box-shadow: var(--dro-shadow);
+  transition: all 500ms ease;
+}
+.bookingBtn:hover {
+  background-color: var(--dro-black);
+  transform: translateY(-5px);
+}
+
+
 
 @media screen and (max-width: 799px){
+  ul {
+    grid-template-columns: repeat(1,1fr);
+  }
   .hero_contents h1 {
     font-size: 2rem;
   }
