@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaRegClock, FaRegCalendarAlt, FaRegFolderOpen, FaRegCreditCard, FaRegQuestionCircle } from "react-icons/fa";
 
 import doctorImg from "../images/doctor.svg";
 
@@ -148,34 +148,49 @@ useEffect(() => {
                     </div>
                     <ul className="modal_list">
                         <li className="list_item">
-                            <span>Date</span>
+                            <span>
+                                <FaRegCalendarAlt />
+                                Date
+                            </span>
                             <span className="list_item2">
                                 <b>10-03-2021</b>
                             </span>
                         </li>
                         <li className="list_item">
-                            <span>Time</span>
+                            <span>
+                                <FaRegClock />
+                                Time
+                            </span>
                             <span className="list_item2">
                                 <b>21:15pm</b>
                             </span>
                         </li>
                         <li className="list_item">
-                            <span>Fee</span>
+                            <span>
+                            <FaRegCreditCard/>
+                                Fee
+                            </span>
                             <span className="list_item2">
                                 <b>N3000</b>
                             </span>
                         </li>
                         <li className="list_item">
-                            <span>Case</span>
+                            <span>
+                            <FaRegFolderOpen/>
+                                Case
+                            </span>
                             <span className="list_item2">Select case</span>
                         </li>
                         <li className="list_item">
-                            <span>Reason</span>
+                            <span>
+                                <FaRegQuestionCircle/>
+                                Reason
+                            </span>
                             <span></span>
                         </li>
                     </ul>
                     <Form>
-                    <   Form.Group as={Row}>
+                        <Form.Group as={Row}>
                             <Form.Label column sm={12}>
                                 Promo Code
                             </Form.Label>
@@ -183,7 +198,7 @@ useEffect(() => {
                                 <Form.Control type="text" placeholder="Enter Promo code here" required/>
                             </Col>
                             <Col sm={3}>
-                                <button className="">Apply</button>
+                                <button className="px-4 applyBtn">Apply</button>
                             </Col>
                         </Form.Group>
                         <button className="bookingBtn">Confirm Booking</button>
