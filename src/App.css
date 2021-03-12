@@ -209,6 +209,11 @@ input[type="checkbox"]{
 .mx-3 {
   margin: 0 0.5rem;
 }
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /**Dashboard*/
 .row {
@@ -551,7 +556,7 @@ input[type="checkbox"]{
 .profile_health img,
 .profile_orders img,
 .profile_family img
- {
+  {
   width: 15%;
 }
 .profile_img {
@@ -559,8 +564,7 @@ input[type="checkbox"]{
   align-items: center;
   justify-content: center;
 }
-.profile_img img
- {
+.profile_img img {
   width: 80%;
   vertical-align: middle;
 }
@@ -746,10 +750,12 @@ input {
   .profile_others {
     grid-template-columns: repeat(2,1fr);
   }
-
   .item2 {
     overflow-y: scroll;
     height: 100%;
+  }
+  .item2 img {
+    width:40%;
   }
   .item2 div {
     width: 200px;

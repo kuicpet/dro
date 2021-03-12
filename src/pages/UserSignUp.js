@@ -10,8 +10,10 @@ import { gender } from "../components/genderData";
 
 
 export default function UserSignUp() {
+
     const [ loading, setLoading ] = useState(false);
     const history = useHistory();
+   
     useEffect(() => {
         if(localStorage.getItem("token") !== null){
             return history.push("/signin")
@@ -39,6 +41,7 @@ export default function UserSignUp() {
                         state: "",
                         ref_methods: "",
                     }}
+
                     onSubmit={values => {
                         console.log(values);
                         setLoading(true);

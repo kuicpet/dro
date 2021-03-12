@@ -46,8 +46,9 @@ export default function UserDashboard() {
        return  history.push("/doctor")
     }
 
-    const { first_name,last_name } = userData.user
-    const { state,country, weight, height, bloodtype } = userData
+    const { first_name,last_name } = userData.user;
+    const { state,country, weight, height, bloodtype } = userData;
+    
     return (
         <Tab.Container defaultActiveKey="#Link1">
             <Row>

@@ -1,12 +1,14 @@
-import React from 'react';
+import React  from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from 'formik';
 import axios from "axios";
 
 
-
 export default function UserSignIn() {
+    
+    
     const history = useHistory();
+
     return (
         <div className="register">
             <div className="register_contents"></div>
@@ -18,21 +20,23 @@ export default function UserSignIn() {
                         password: "",
                     }}
                     onSubmit={values => {
+                        
                         console.log(values);
                         const headers = {
-                            "token":"X-CSRFToken"
+                            "X-CSRFToken":"token"
                         }
                         axios.post("https://dev.drohealth.com/patients/api/login/",values, headers)
                             .then((res) => {
                                 console.log(res)
                                 if(res.status === 200){
-                                    //localStorage.setItem("token")
-                                    history.push("/dashboard")
+                                    localStorage.setItem("token","token")
+                                    return history.push("/dashboard")
                                 }
                             }).catch((error) => {
                                 console.log(error)
                             })
                     }}
+                    
                 >
                     <Form className="form">
                         <div>
@@ -59,7 +63,9 @@ export default function UserSignIn() {
                                 maxLength="20"
                                 required/>
                         </div>
-                        <button type="submit" className="btn">Login</button>
+                        <button type="submit" className="btn">
+                            login
+                        </button>
                     </Form>
                     
                 </Formik>
