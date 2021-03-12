@@ -243,6 +243,9 @@ input[type="checkbox"]{
   z-index: 100;
   border: 1px solid #e3e3e3;
 }
+.item1 p {
+  text-transform: capitalize;
+}
 .practitioners_preferred {
   text-align: center;
   padding: 0.5rem;
@@ -426,6 +429,9 @@ input[type="checkbox"]{
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   height: 6rem;
+}
+.profile_name {
+  text-transform: capitalize;
 }
 .profile_img, .profile_contents {
   background-color: var(--dro-white);
@@ -735,6 +741,7 @@ input {
 
   .item2 {
     overflow-y: scroll;
+    height: 100%;
   }
   .item2 div {
     width: 200px;

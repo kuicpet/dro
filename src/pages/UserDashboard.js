@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Tab, Row, ListGroup } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
@@ -24,11 +24,30 @@ import covid from "../images/coronavirus.svg";
 
 
 export default function UserDashboard() {
-
+    
     const history = useHistory();
+
+    const getUser = () => {
+        const json = localStorage.getItem("data");
+        const userData = JSON.parse(json);
+        console.log(userData);
+        //console.log(userData.user.username)
+    }
+
+    useEffect(() => {
+        getUser();
+    }, [])
+
+    const json = localStorage.getItem("data");
+    const userData = JSON.parse(json);
+
+    // Get Doctor
     const seeDoctor = () => {
        return  history.push("/doctor")
     }
+
+    const { first_name,last_name } = userData.user
+    const { state,country, weight, height, bloodtype } = userData
     return (
         <Tab.Container defaultActiveKey="#Link1">
             <Row>
@@ -51,7 +70,9 @@ export default function UserDashboard() {
                 <Col sm={8}>
                     <Tab.Content>
                         <Tab.Pane eventKey="#Link1">
-                            <div className="item1"></div>
+                            <div className="item1">
+                                <p>Hi, {first_name}</p>
+                            </div>
                             <p className="pg">Services</p>
                             <div className="item2">
                                 <div className="now" onClick={() => seeDoctor()}>
@@ -219,21 +240,21 @@ export default function UserDashboard() {
                                     <img src={user} alt="" />
                                 </div>
                                 <div className="profile_contents">
-                                    <div>
-                                        <p>Kingsley Umujeyan</p>
-                                        <p>Lagos,Nigeria</p>
+                                    <div className="profile_name">
+                                        <p>{first_name} {last_name}</p>
+                                        <p>{state},{country}</p>
                                     </div>
                                     <div>
                                         <p className="upper">Weight</p>
-                                        <p>0.0kg</p>
+                                        <p>{weight ? weight : "--"}kg</p>
                                     </div>
                                     <div>
                                         <p className="upper">Blood Type</p>
-                                        <p>-</p>
+                                        <p>{bloodtype ? bloodtype : "--"}</p>
                                     </div>
                                     <div>
                                         <p className="upper">Height</p>
-                                        <p>0.00m</p>
+                                        <p>{height ? height : "--"}m</p>
                                     </div>
                                 </div>
                             </div>

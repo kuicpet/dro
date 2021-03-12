@@ -26,7 +26,6 @@ export default function Header() {
                     <Link
                         onClick={()=> signOut()}
                         className="signout"
-                        
                     >
                         Sign out
                     </Link>

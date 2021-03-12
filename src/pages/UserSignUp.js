@@ -43,13 +43,13 @@ export default function UserSignUp() {
                         axios.post("https://dev.drohealth.com/patients/api/create/",values)
                             .then((res) => {
                                 console.log(res);
+                                const data = res.data;
+                                console.log(data);
                                 if(res.status === 201){
-                                    localStorage.setItem("token", "X-CSRFToken");
+                                   localStorage.setItem("token","X-CSRFToken")
+                                   localStorage.setItem("data", JSON.stringify(data))
                                     return history.push("/signin")
                                 }
-
-                            }).then((data) => {
-                                localStorage.setItem("data", JSON.stringify(data));
                             })
                             .catch((error) => {
                                 console.log(error)
@@ -198,3 +198,6 @@ export default function UserSignUp() {
         </div>
     )
 }
+
+
+
