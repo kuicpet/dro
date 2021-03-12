@@ -1,15 +1,16 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from 'formik';
 import axios from "axios";
 
+import Spinner from "../components/Spinner";
 import { states } from "../components/stateData";
 import { ref_methods } from "../components/refData";
 import { gender } from "../components/genderData";
 
 
 export default function UserSignUp() {
-    
+    const [ loading, setLoading ] = useState(false);
     const history = useHistory();
     useEffect(() => {
         if(localStorage.getItem("token") !== null){
@@ -40,8 +41,10 @@ export default function UserSignUp() {
                     }}
                     onSubmit={values => {
                         console.log(values);
+                        setLoading(true);
                         axios.post("https://dev.drohealth.com/patients/api/create/",values)
                             .then((res) => {
+                                setLoading(false);
                                 console.log(res);
                                 const data = res.data;
                                 console.log(data);
@@ -54,6 +57,7 @@ export default function UserSignUp() {
                             .catch((error) => {
                                 console.log(error)
                             })
+                        setLoading(false);
                     }}
                 >
                     <Form className="form">
@@ -187,7 +191,9 @@ export default function UserSignUp() {
                                 ))}
                             </Field>
                         </div>
-                        <button type="submit" className="btn">Register</button>
+                        <button type="submit" className="btn">
+                            { loading ? <Spinner/> : "Register" }
+                        </button>
                     </Form>
                 </Formik>
                 <p className="my-3">

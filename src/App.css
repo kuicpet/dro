@@ -68,7 +68,10 @@
   color: var(--dro-purple);
   text-decoration: none;
 }
-
+.signin:focus,
+.signup:focus {
+  color: var(--dro-purple)
+}
 /*Hero Page**/
 .hero {
   position: relative;
@@ -196,8 +199,8 @@ input[type="checkbox"]{
   margin-top: 2rem;
 }
 .btn:hover {
-  opacity: 0.9;
   color: var(--dro-white);
+  background-color: var(--dro-black);
 }
 
 .my-3 {
