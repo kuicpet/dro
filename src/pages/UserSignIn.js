@@ -28,8 +28,10 @@ export default function UserSignIn() {
                         axios.post("https://dev.drohealth.com/patients/api/login/",values, headers)
                             .then((res) => {
                                 console.log(res)
+                                let token = res.data.token;
+                                console.log(token);
                                 if(res.status === 200){
-                                    localStorage.setItem("token","token")
+                                    localStorage.setItem("token",JSON.stringify(token))
                                     return history.push("/dashboard")
                                 }
                             }).catch((error) => {

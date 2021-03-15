@@ -3,29 +3,36 @@ import { Modal, Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { FaRegHeart, FaRegClock, FaRegCalendarAlt, FaRegFolderOpen, FaRegCreditCard, FaRegQuestionCircle } from "react-icons/fa";
 
+import Spinner from "../components/Spinner";
 import doctorImg from "../images/doctor.svg";
 
 export default function Doctor() {
     const [show, setShow] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
-
+   
     const getDoctors = async() => {
-        const token = localStorage.getItem("token")
-        try {
-            await axios.get("https://dev.drohealth.com/doctor/api/availability-times/", token)
-                        .then((res) => {
-                            console.log(res.data)
-                        })
-        } catch (error) {
-            console.log(error)
+        const Token = localStorage.getItem("token");
+        const headers = {
+            "WWW-Authenticate": Token,
+        };
+        setLoading(true)
+       await axios.get("https://dev.drohealth.com/doctor/api/availability-times/", headers)
+            .then((res) => {
+                console.log(res.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        setLoading(false);
         }
-    }
-useEffect(() => {
-    getDoctors();
-},[])
+
+        useEffect(() => {
+            getDoctors();
+        },[])
 
     return (
         <div className="doctors px-3">
@@ -49,7 +56,8 @@ useEffect(() => {
                     <p>12:00 noon</p>
                 </div>
             </div>
-            <div className="doctors_list">
+            {loading ? <Spinner /> : (
+                <div className="doctors_list">
                 <ul>
                     <li>
                         <div className="doctor">
@@ -125,6 +133,8 @@ useEffect(() => {
                     </li>
                 </ul>
             </div>
+            )}
+            
             <div className="book_later my-4">
                 <p>Want to book at a later time?</p>
                 <button className="px-4 py-2">Book an appointment</button>
