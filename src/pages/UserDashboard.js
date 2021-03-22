@@ -66,13 +66,18 @@ export default function UserDashboard() {
                         <ListGroup.Item action href="#Link4">
                             Profile
                         </ListGroup.Item>
+                        <ListGroup.Item action href="#Link5">
+                            Settings
+                        </ListGroup.Item>
                     </ListGroup>
                 </Col>
                 <Col sm={8}>
                     <Tab.Content>
                         <Tab.Pane eventKey="#Link1">
+                            <p className="first_name">Hi, {first_name}</p>
+                            <p className="pg">Upcoming</p>
                             <div className="item1">
-                                <p>Hi, {first_name}</p>
+                                <p>No upcoming appointments, order or test.</p>
                             </div>
                             <p className="pg">Services</p>
                             <div className="item2">
@@ -247,7 +252,7 @@ export default function UserDashboard() {
                                     </div>
                                     <div>
                                         <p className="upper">Weight</p>
-                                        <p>{weight ? weight : "--"}kg</p>
+                                        <p>{weight ? weight : "0.0"}kg</p>
                                     </div>
                                     <div>
                                         <p className="upper">Blood Type</p>
@@ -255,7 +260,7 @@ export default function UserDashboard() {
                                     </div>
                                     <div>
                                         <p className="upper">Height</p>
-                                        <p>{height ? height : "--"}m</p>
+                                        <p>{height ? height : "0.00"}m</p>
                                     </div>
                                 </div>
                             </div>
@@ -276,6 +281,11 @@ export default function UserDashboard() {
                                     <img src={basket} alt="" />
                                     <p>My Orders</p>
                                 </div>
+                            </div>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="#Link5">
+                            <div>
+                                <p className="pg">Settings</p>
                             </div>
                         </Tab.Pane>
                     </Tab.Content>
