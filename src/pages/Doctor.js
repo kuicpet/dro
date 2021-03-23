@@ -7,8 +7,9 @@ import Spinner from "../components/Spinner";
 import doctorImg from "../images/doctor.svg";
 
 export default function Doctor() {
+    //const [doctors, setDoctors] = useState([]);
     const [show, setShow] = useState(false)
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -19,13 +20,15 @@ export default function Doctor() {
         const headers = {
             "WWW-Authenticate": Token,
         };
-        setLoading(true)
+        setLoading(true);
        await axios.get("https://dev.drohealth.com/doctor/api/availability-times/", headers)
             .then((res) => {
-                console.log(res.data)
+                console.log(res.data);
+                //setDoctors(res.data);
             })
             .catch((error) => {
-                console.log(error)
+                setLoading(false);
+                console.log(error);
             })
         setLoading(false);
         }
@@ -33,6 +36,10 @@ export default function Doctor() {
         useEffect(() => {
             getDoctors();
         },[])
+    
+    if(loading){
+        return <Spinner />
+    }
 
     return (
         <div className="doctors px-3">
@@ -56,7 +63,7 @@ export default function Doctor() {
                     <p>12:00 noon</p>
                 </div>
             </div>
-            {loading ? <Spinner /> : (
+
                 <div className="doctors_list">
                 <ul>
                     <li>
@@ -133,7 +140,6 @@ export default function Doctor() {
                     </li>
                 </ul>
             </div>
-            )}
             
             <div className="book_later my-4">
                 <p>Want to book at a later time?</p>
